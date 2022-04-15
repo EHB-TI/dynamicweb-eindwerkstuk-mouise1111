@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/recipe.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
+        integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Playfair+Display+SC&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+        integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<style>
+    span.line_wrap {
+        position: relative;
+        display: inline-block;
+    }
+
+    span.line {
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 0;
+        border-top: 2px solid #E63946;
+        -webkit-transition: width 0.3s ease-in;
+    }
+
+    /* span.line_wrap:hover span.line {
+        width: 100%;
+    } */
+</style>
+
+<body>
+    <main>
+        <section class="container-main">
+
+
+            <h3 class="recipeTitle" id="title">
+                Recipe Title
+            </h3>
+
+            <p id="article-summary">
+                <img src="../svg/quote.svg">
+                Introduction sentence to the dish
+            </p>
+
+            <!-- INGREDIENTS -->
+            <h4 class="headers">
+                Ingredients
+            </h4>
+            <p class="ingredient">
+                <ul id="ul-ingredients">
+                </ul>
+            </p>
+
+            <!-- NUTRITION Card-->
+            <h4 class="headers">
+                Nutrition Card
+            </h4>
+            <div class="nutrition">
+                <ul id="nutrition-ul">
+                </ul>
+            </div>
+
+            <!-- INSTRUCTIONS -->
+            <img id="image-recipe" style="width: 45%; align-items: center; text-align: center;">
+            <h4 class="headers">Instructions</h4>
+            <ol class="instructions-ol">
+            </ol>
+
+            <img src="../svg/circles.svg" id="circlesSvg" alt="circles for design in the background">
+            <a href="../index.html"> <img src="../svg/backArrow.svg" id="backArrow" alt="Icon to go back to home">
+            </a>
+            <img src="../svg/add.svg" id="addFavorite" alt="Icon to add a new Recipe to favorites">
+
+        </section>
+    </main>
+
+    <!-- <section>
+        <div class="linecontainer">
+            <svg width="68" height="2048" viewBox="0 0 68 2048" fill="none" xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="xMidYmax meet">
+                <path
+                    d="M27 0V374C27 380.833 27.4643 392.705 35.5 395.5C46.3384 399.27 50.0708 415.031 48.3715 423.111C48.1944 423.953 48.3811 424.09 49.1056 423.625C52.0784 421.717 60.2574 417.86 65 424.5C72.415 434.881 46.5964 446.239 47.9429 453.743C47.9736 453.915 48 454.088 48 454.262V462.5C48 463.605 47.1046 464.5 46 464.5H3C1.89543 464.5 1 463.605 1 462.5V411.5C1 406 7.6 394.8 18 394C28.4 393.2 28.3333 442.667 27 467.5V509.5V1014C27 1023.09 30.8883 1042.55 46.2381 1049.47C46.9892 1049.81 47.5 1050.54 47.5 1051.37V1077.68C47.5 1077.89 47.4686 1078.1 47.3884 1078.3C46.3828 1080.8 42.4297 1085.77 33.4752 1088.57C32.6121 1088.84 32 1089.63 32 1090.53V1121.5C32 1121.83 31.9245 1122.15 31.7556 1122.43C30.1259 1125.13 26.2813 1128.28 21.8776 1122.51C21.6269 1122.19 21.5 1121.78 21.5 1121.37V1091.26C21.5 1090.49 21.0619 1089.79 20.3763 1089.44C15.7529 1087.11 8.08231 1082.6 6.61736 1079.3C6.53014 1079.1 6.5 1078.89 6.5 1078.68V1051C6.5 1049.9 7.39543 1049 8.5 1049H18.9587C19.6113 1049 20.2259 1049.32 20.4802 1049.92C22.9175 1055.68 27 1081.28 27 1147.5V1668.5C27 1678.17 28.5905 1700.09 37 1708.5C50.7474 1722.25 43.7637 1739.85 32.6186 1746.16C32.2213 1746.39 31.7539 1746.6 31.6116 1747.04C30.8923 1749.23 30.3117 1758.44 31.9589 1780.45C31.9852 1780.81 31.922 1781.17 31.7579 1781.48C29.2824 1786.18 23.1612 1792.03 16.3283 1781.52C16.1147 1781.19 16.0059 1780.79 16.0171 1780.4L18.4774 1693.8C18.4919 1693.28 18.6976 1692.8 19.0802 1692.46C19.8352 1691.79 20.8846 1691 21.5 1691C22.3 1691 25.5 1777.33 27 1820.5V1985V2049.5"
+                    stroke="#F1FAEE" stroke-width="2" />
+            </svg>
+        </div>
+    </section> -->
+    <script type="module" src="/js/recipe.js"></script>
+
+
+
+    <script>
+        // let path = document.querySelector('path');
+        // let pathLenth = path.getTotalLength();
+
+        // path.style.strokeDasharray = pathLength + ' ' + pathLength;
+
+        // path.style.strokeDashoffset = pathLength;
+
+        // window.addEventListener('scroll', () => {
+
+        //     //what % down is it?
+        //     var scorllPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document
+        //         .documentElement.scrollHeight - document.documentElement.clientHeight);
+
+        //     //Lenth to offset the dashes
+        //     var drawLength = pathLength * scorllPercentage;
+
+        //     //Draw in reverse 
+        //     path.style.strokeDashoffset = pathLength - drawLength;
+        // })
+    </script>
+</body>
+
+</html>
