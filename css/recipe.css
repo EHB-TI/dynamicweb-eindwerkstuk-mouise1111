@@ -1,0 +1,187 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #1d3557;
+
+  font-family: "Nanum Myeongjo", serif;
+
+  cursor: crosshair;
+  color: white;
+  font-size: 1.05em;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+::selection {
+  /* Your CSS styles to apply when 
+    user selects content in the HTML */
+  background-color: #e63946;
+  color: white;
+}
+
+.container-main {
+  margin-top: 40px;
+  margin-bottom: 80px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.recipeTitle {
+  /* top: 5%;
+    left: 5%;
+    right: 5%;
+    bottom: 10%; */
+  word-spacing: 3px;
+  margin: 0px;
+  margin-bottom: 20px;
+  font-size: 64px;
+  color: #e63946;
+  background-color: rgba(0, 0, 0, 0);
+  line-height: 2;
+  text-align: center;
+}
+
+.headers {
+  text-align: center;
+  margin: 2%;
+  margin-top: 8%;
+  margin-bottom: 4%;
+  font-size: 48px;
+
+  color: #a8dadc;
+}
+
+p {
+  color: #f1faee;
+}
+
+#ul-ingredients {
+  list-style: square;
+}
+
+.directions-p {
+  width: 500px;
+  margin: 10px;
+}
+
+.directions-p ol {
+  color: #ccc;
+  list-style-type: none;
+}
+
+.directions-p ol li {
+  position: relative;
+  /* font: bold italic 45px/1.5 Helvetica, Verdana, sans-serif; */
+  margin-bottom: 20px;
+}
+
+.directions-p li p {
+  font: 12px/1.5 Helvetica, sans-serif;
+  padding-left: 60px;
+  color: #555;
+}
+
+.directions-p span {
+  position: absolute;
+}
+
+.nutrition {
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 30px;
+  z-index: 1;
+  padding: 10%;
+  width: 50%;
+  margin: auto;
+}
+
+.nutrition li {
+  color: #1d3557;
+  background-color: #f1faeeec;
+  font-size: 1.4em;
+  font-weight: 600;
+  text-align: center;
+  list-style: none;
+}
+
+#article-summary {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+#ul-ingredients {
+  margin: auto;
+  width: auto;
+  text-align: center;
+}
+
+#ul-ingredients li {
+  margin: 10px;
+  list-style-type: none;
+}
+
+#ul-ingredients li:hover {
+  color: #e63946;
+}
+
+/* instructions-ol {
+    list-style: none;
+} */
+
+.instructions-ol li {
+  margin-top: 40px;
+  list-style: none;
+  text-align: center;
+}
+
+.instructions-ol li span {
+  background-color: #e63946;
+  border-radius: 60px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  display: block;
+  width: 40px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+#circlesSvg {
+  position: absolute;
+  bottom: -500px;
+  right: -300px;
+  opacity: 0.85;
+  z-index: 0;
+}
+
+#backArrow {
+  position: fixed;
+  left: 50px;
+  bottom: 50px;
+}
+
+#backArrow:hover {
+  border-radius: 40px;
+  background-color: #f1faee;
+}
+
+#addFavorite {
+  position: fixed;
+  left: 120px;
+  bottom: 50px;
+}
+
+#addFavorite:hover {
+  background-color: #f1faee;
+
+  background: radial-gradient(
+    79.95% 158.18% at 62.26% 25.89%,
+    #e639c0 0%,
+    #e63946 100%
+  );
+  border-radius: 40px;
+}
