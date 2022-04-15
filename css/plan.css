@@ -1,0 +1,67 @@
+* {
+  font-family: "Nanum Myeongjo", serif;
+}
+
+.main-container {
+  height: 75vh;
+  width: 100%;
+  margin: 0;
+  margin-top: 5vh;
+}
+
+.wrapper2 {
+  width: 100%;
+  height: 25%;
+  display: flex;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  justify-content: center;
+}
+
+.day-container {
+  width: 45%;
+  place-self: center;
+  align-items: center;
+  padding: 3%;
+  gap: 2rem;
+  display: flex;
+  background: linear-gradient(180deg, #457b9d 0%, #2c6e98 100%);
+  border-radius: 40px;
+  height: 80%;
+}
+
+.day-container h2 {
+  background-color: transparent;
+  color: #f1faee;
+  font-size: 2.5em;
+}
+
+.day-container svg {
+  background-color: rgba(56, 56, 56, 0.247);
+}
+
+.sport-container {
+  background-color: transparent;
+}
+
+.sport-container svg {
+  background-color: transparent;
+}
+
+.addSVG {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.sports {
+  display: inline-block;
+  position: relative;
+  /* visibility: hidden; */
+}
+
+.sport-selected {
+  border: 2px solid #f1faee;
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
