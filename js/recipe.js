@@ -23,7 +23,7 @@ function populateHeader(recipe) {
 function populateIntro(recipe) {
   var str = recipe.summary;
   var firstSentence = str.substr(0, str.indexOf("."));
-  intro.html(`<img src="../svg/quote.svg">${firstSentence}`);
+  intro.html(`<img src="..Assets/svg/quote.svg">${firstSentence}`);
 }
 
 function populateIngredients(recipe) {
