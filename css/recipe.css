@@ -185,3 +185,18 @@ p {
   );
   border-radius: 40px;
 }
+
+span.line_wrap {
+  position: relative;
+  display: inline-block;
+}
+
+span.line {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  border-top: 2px solid #e63946;
+  -webkit-transition: width 0.3s ease-in;
+}
