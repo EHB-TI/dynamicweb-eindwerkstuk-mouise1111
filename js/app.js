@@ -1,12 +1,11 @@
 //#region path
-var paths = document.querySelectorAll("svg path"),
-  // var paths = document.getElementById("LineDrawing"),
+let paths = document.querySelectorAll("svg path"),
   i = 0;
 
 paths.forEach(function (item, index) {
   i++;
 
-  var pathLength = item.getTotalLength();
+  const pathLength = item.getTotalLength();
 
   item.setAttribute("stroke-dasharray", pathLength);
   item.setAttribute("stroke-dashoffset", pathLength);

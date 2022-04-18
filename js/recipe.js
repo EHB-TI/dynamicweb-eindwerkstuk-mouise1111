@@ -2,13 +2,12 @@ import recipes from "./index.js";
 
 const firstRecipe = recipes.recipes[0];
 //#region DOM variables
-let headerTitle = $(".headerTitle");
-let intro = $("#article-summary"); // first sentence of summary | introduction to the dish
-var ul = $("#ul-ingredients");
-var nutritionul = $("#nutrition-ul");
-const image = $("#image-recipe");
+const headerTitle = $(".headerTitle");
+const intro = $("#article-summary"); // first sentence of summary | introduction to the dish
+const ul = $("#ul-ingredients");
+const nutritionul = $("#nutrition-ul");
 const steps = $(".instructions-ol");
-let readmore = $(".read-more");
+const readmore = $(".read-more");
 //#endregion
 function populate(recipe) {
   populateHeader(recipe);
@@ -21,8 +20,8 @@ function populateHeader(recipe) {
   headerTitle.html(recipe.title);
 }
 function populateIntro(recipe) {
-  var str = recipe.summary;
-  var firstSentence = str.substr(0, str.indexOf("."));
+  const str = recipe.summary;
+  const firstSentence = str.substr(0, str.indexOf("."));
   intro.html(`<img src="..Assets/svg/quote.svg">${firstSentence}`);
 }
 
@@ -35,10 +34,10 @@ function populateIngredients(recipe) {
 
   //make am UNORDERED list with the array
   for (let j = 0; j < ingredients.length; j++) {
-    var ingredient = ingredients[j];
+    const ingredient = ingredients[j];
 
     //line wrap is for the ingredient to be striked through when it gets clicked
-    var node = `<li><span class='line_wrap'><span class='line'></span class="ingredient-span">${ingredient}</span></li>`;
+    const node = `<li><span class='line_wrap'><span class='line'></span class="ingredient-span">${ingredient}</span></li>`;
 
     $("#ul-ingredients li").click(function () {
       $(this).find(".line").css("width", "100%");
@@ -55,7 +54,7 @@ function populateIngredients(recipe) {
 function nutritionPopulate(recipe) {
   nutritionul.html(`<p id='summaryParagraph'>${recipe.summary}</p>`);
 
-  var boldtext = $("#summaryParagraph b")
+  const boldtext = $("#summaryParagraph b")
     .map(function () {
       return $(this).text();
     })
@@ -66,19 +65,16 @@ function nutritionPopulate(recipe) {
   $("#summaryParagraph").hide();
 
   //use recipe image as background for card
-  var imageUrl = recipe.image;
+  const imageUrl = recipe.image;
   $(".nutrition").css("background-image", `url("${imageUrl}")`);
 }
 
 function instructionsPopulate(recipe) {
-  //instead of letting the html take care of the ordered list
-  //I will add a span to make my own list with a counter
-
-  var counterlist = 0;
+  let counterlist = 0;
   recipe.analyzedInstructions[0].steps.forEach((element) => {
     counterlist++;
-    var step = element.step;
-    var node = $(`<li><span>${counterlist}</span> ${step} </li>`);
+    const step = element.step;
+    const node = $(`<li><span>${counterlist}</span> ${step} </li>`);
     steps.append(node);
   });
 }
@@ -86,8 +82,6 @@ function instructionsPopulate(recipe) {
 async function addFavorite(recipe) {
   var idRecipe = recipe.id;
   console.log(idRecipe);
-  // var url = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/summary`
-  // const responseA = await fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${idRecipe}/summary`)
   const responseA = await fetch(`${url}${idRecipe}/summary`, options);
   const dataA = await responseA.json();
 
@@ -101,7 +95,6 @@ async function addFavorite(recipe) {
 
   localStorage.setItem("itemsArray", JSON.stringify(oldItems));
 }
-
 $(document).ready(function () {
   populate(firstRecipe);
 });

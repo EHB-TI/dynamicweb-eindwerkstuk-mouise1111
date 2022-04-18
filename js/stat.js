@@ -6,23 +6,19 @@
 //   rest_counter,
 // } from "./plan";
 
-var run_counter = 0;
-var rest_counter = 0;
-var weightlifting_counter = 0;
-var yoga_counter = 0;
+let run_counter = 0;
+let rest_counter = 0;
+let weightlifting_counter = 0;
+let yoga_counter = 0;
 
 getCounters();
 
 //total workout
-var totalWorkouts =
+const totalWorkouts =
   run_counter + weightlifting_counter + yoga_counter + rest_counter;
 $("#total").html(
   `Total workouts done: <span style="color:#E63946" ;><b>${totalWorkouts}</b></span>`
 );
-
-let str = $("#total").html();
-// let aantal = str.split('- Year: ')[1].trim()
-// let title = str.split('- Year: ')[0].trim()
 
 //chart
 const ctx = document.getElementById("myChart").getContext("2d");
