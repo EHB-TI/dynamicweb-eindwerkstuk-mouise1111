@@ -22,7 +22,7 @@ function populateHeader(recipe) {
 function populateIntro(recipe) {
   const str = recipe.summary;
   const firstSentence = str.substr(0, str.indexOf("."));
-  intro.html(`<img src="..Assets/svg/quote.svg">${firstSentence}`);
+  intro.html(`<img src="../Assets/svg/quote.svg">${firstSentence}`);
 }
 
 function populateIngredients(recipe) {
