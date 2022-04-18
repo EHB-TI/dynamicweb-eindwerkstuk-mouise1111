@@ -13,10 +13,10 @@ async function start() {
   const response = await fetch(`${url}random?number=4`, options);
   const data = await response.json();
   //#region populate Headers
-  populateHeader(recipe1, 0);
-  populateHeader(recipe2, 1);
-  populateHeader(recipe3, 2);
-  populateHeader(recipe4, 3);
+  populateHeader(data.recipes[0], 0);
+  populateHeader(data.recipes[1], 1);
+  populateHeader(data.recipes[2], 2);
+  populateHeader(data.recipes[3], 3);
   //#endregion
 
   return data;
