@@ -1,4 +1,3 @@
-// import Chart from "chart.js/auto";
 // import {
 //   run_counter,
 //   weightlifting_counter,
