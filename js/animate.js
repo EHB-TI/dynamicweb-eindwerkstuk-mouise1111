@@ -54,3 +54,12 @@ anime({
   duration: 1000,
   delay: 1500,
 });
+
+anime({
+  targets: ".container",
+  scale: [0.8, 1],
+  opacity: [0, 1],
+  translateX: [-100, 0],
+  duration: 1000,
+  delay: 4000,
+});
