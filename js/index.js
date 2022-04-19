@@ -1,7 +1,7 @@
 import options from "../config/config.js";
 
 //this is the base url
-let url =
+export let url =
   "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/";
 
 //#region DOM variables
@@ -12,6 +12,7 @@ let recipeTitle = $(".recipeTitle");
 async function start() {
   const response = await fetch(`${url}random?number=4`, options);
   const data = await response.json();
+
   //#region populate Headers
   populateHeader(data.recipes[0], 0);
   populateHeader(data.recipes[1], 1);
@@ -26,7 +27,7 @@ function populateHeader(recipe, number) {
   recipeTitle.eq(number).html(recipe.title);
 }
 
-start();
+// start();
 
-let recipes = await start();
-export default recipes;
+const data = await start();
+export default data;

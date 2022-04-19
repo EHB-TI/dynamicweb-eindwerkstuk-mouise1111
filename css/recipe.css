@@ -30,11 +30,7 @@ body {
   margin-right: 15px;
 }
 
-.recipeTitle {
-  /* top: 5%;
-    left: 5%;
-    right: 5%;
-    bottom: 10%; */
+#title {
   word-spacing: 3px;
   margin: 0px;
   margin-bottom: 20px;

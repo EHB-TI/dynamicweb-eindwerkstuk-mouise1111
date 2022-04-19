@@ -1,20 +1,27 @@
-import recipes from "./index.js";
+import data from "./index.js";
+import { url } from "./index.js";
+import options from "../config/config.js";
 
-const firstRecipe = recipes.recipes[0];
 //#region DOM variables
-const headerTitle = $(".headerTitle");
+const headerTitle = $("#title");
 const intro = $("#article-summary"); // first sentence of summary | introduction to the dish
 const ul = $("#ul-ingredients");
 const nutritionul = $("#nutrition-ul");
 const steps = $(".instructions-ol");
 const readmore = $(".read-more");
 //#endregion
+
+//#region Populate
+const firstRecipe = data.recipes[0];
 function populate(recipe) {
   populateHeader(recipe);
   populateIntro(recipe);
   populateIngredients(recipe);
   nutritionPopulate(recipe);
   instructionsPopulate(recipe);
+  $("#addFavorite").click(function () {
+    addFavorite(recipe);
+  });
 }
 function populateHeader(recipe) {
   headerTitle.html(recipe.title);
@@ -78,23 +85,25 @@ function instructionsPopulate(recipe) {
     steps.append(node);
   });
 }
+//#endregion
 
 async function addFavorite(recipe) {
-  var idRecipe = recipe.id;
-  console.log(idRecipe);
+  const idRecipe = recipe.id;
   const responseA = await fetch(`${url}${idRecipe}/summary`, options);
   const dataA = await responseA.json();
 
-  var recipeName = dataA.title;
+  const recipeName = dataA.title;
 
   // //save to localStorage
-  var oldItems = JSON.parse(localStorage.getItem("itemsArray")) || [];
+  let oldItems = JSON.parse(localStorage.getItem("FavoriteRecipes")) || [];
 
-  var newItem = recipeName;
+  const newItem = recipeName;
   oldItems.push(newItem);
 
-  localStorage.setItem("itemsArray", JSON.stringify(oldItems));
+  //alleen unieke waarden kunnen opgeslaan worden om te vermijden dat er 2 gelijke recipes zijn
+  var unique = oldItems.filter((v, i, a) => a.indexOf(v) === i);
+
+  localStorage.setItem("FavoriteRecipes", JSON.stringify(unique));
 }
-$(document).ready(function () {
-  populate(firstRecipe);
-});
+
+populate(firstRecipe);
